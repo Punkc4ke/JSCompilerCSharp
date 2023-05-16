@@ -1,0 +1,101 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSCompiler"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="JSCompiler.MainWindow"
+        mc:Ignorable="d"
+        Title="Редактор скриптов" Height="550" Width="900">
+    <Grid>
+        <Menu Height="20" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <MenuItem Header="Файл">
+                <MenuItem x:Name="newFile" Header="Новый текстовый файл" Click="newFile_Click"/>
+                <MenuItem x:Name="openFile" Header="Открыть файл" Click="openFile_Click"/>
+                <MenuItem x:Name="openFolder" Header="Открыть папку" Click="openFolder_Click"/>
+                <MenuItem x:Name="Save" Header="Сохранить" Click="Save_Click"/>
+                <MenuItem x:Name="SaveAs" Header="Сохранить как" Click="SaveAs_Click"/>
+                <MenuItem x:Name="CloseEditor" Header="Закрыть редактор" Click="CloseEditor_Click"/>
+                <MenuItem x:Name="CloseFolder" Header="Закрыть папку" Click="CloseFolder_Click"/>
+                <MenuItem x:Name="CloseWindow" Header="Закрыть окно" Click="CloseWindow_Click" />
+                <MenuItem x:Name="Exit" Header="Выйти" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Правка">
+                <MenuItem x:Name="Undo" Header="Отменить"
+                InputGestureText="Ctrl+Z" Command="ApplicationCommands.Undo"/>
+                <MenuItem x:Name="Redo" Header="Вернуть"
+                InputGestureText="Ctrl+Y" Command="ApplicationCommands.Redo"/>
+                <MenuItem x:Name="Cut" Header="Вырезать"
+                InputGestureText="Ctrl+X" Command="ApplicationCommands.Cut"/>
+                <MenuItem x:Name="Copy" Header="Копировать"
+                InputGestureText="Ctrl+С" Command="ApplicationCommands.Copy"/>
+                <MenuItem x:Name="Paste" Header="Вставить"
+                InputGestureText="Ctrl+V" Command="ApplicationCommands.Paste"/>
+                <MenuItem x:Name="SelectAll" Header="Выделить всё"
+                InputGestureText="Ctrl+V" Command="ApplicationCommands.SelectAll"/>
+            </MenuItem>
+        </Menu>
+        <DockPanel>
+            <Grid DockPanel.Dock="Bottom">
+                <DockPanel>
+                    <ListBox x:Name="branchListBox" DockPanel.Dock="Left" MinHeight="100" MinWidth="200" HorizontalAlignment="Left"  SelectionChanged="branchListBox_SelectionChanged" SelectionMode="Single" >
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="checkoutBranch" Header="Checkout" Click="checkoutBranch_Click"/>
+                                <MenuItem x:Name="createBranch"  Header="Create branch from" Click="createBranch_Click"/>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="12" Text="{Binding Path=BranchName}" HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox x:Name="commitListBox" MinHeight="100" MinWidth="500" HorizontalAlignment="Stretch" SelectionChanged="commitListBox_SelectionChanged" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="12" Text="{Binding Path=Message}" HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="checkoutCommit" Header="Checkout" Click="checkoutCommit_Click"/>
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock x:Name="messageTextBlock"></TextBlock>
+                        <TextBlock Height="50" x:Name="lolTextBlock" TextWrapping="Wrap"></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </Grid>
+            <Button DockPanel.Dock="Top" Content="Выполнить" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Click="Execute_Click"/>
+            <WindowsFormsHost DockPanel.Dock="Left" MinWidth="200">
+                <wf:TreeView x:Name="treeView" AfterSelect="treeView_AfterSelect"/>
+            </WindowsFormsHost>
+            <TextBlock DockPanel.Dock="Bottom" x:Name="TextBlock" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" Height="40" />
+            <TabControl DockPanel.Dock="Top" x:Name="MyTabControl">
+                <TabControl.Template>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <DockPanel VerticalAlignment="Stretch">
+                            <ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                                <TabPanel x:Name="HeaderPanel"
+                              Panel.ZIndex ="1" 
+                              KeyboardNavigation.TabIndex="1"
+                              IsItemsHost="true"/>
+                            </ScrollViewer>
+                            <ContentPresenter VerticalAlignment="Stretch" x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" />
+                        </DockPanel>
+                    </ControlTemplate>
+                </TabControl.Template>
+                <TabItem Header="Welcome">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top"/>
+                        <avalonEdit:TextEditor xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit" SyntaxHighlighting="JavaScript" FontSize="12pt" ShowLineNumbers="True"/>
+                    </DockPanel>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>

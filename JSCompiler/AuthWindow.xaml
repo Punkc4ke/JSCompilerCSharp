@@ -1,0 +1,16 @@
+﻿<Window x:Class="JSCompiler.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSCompiler"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="500">
+    <Grid>
+        <TextBox x:Name="Login" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <PasswordBox x:Name="Password" Margin="187,242,186.6,0" Height="23" VerticalAlignment="Top"/>
+        <Button Content="Войти" Margin="210,287,209.6,0" Height="30" VerticalAlignment="Top" Click="Login_Click"/>
+        <Label Content="Логин:" HorizontalAlignment="Left" Margin="135,198,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль:" HorizontalAlignment="Left" Margin="127,242,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
