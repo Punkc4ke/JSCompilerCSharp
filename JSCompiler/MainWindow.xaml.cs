@@ -51,23 +51,10 @@ namespace JSCompiler
 
             using (var repo = new Repository(@"C:\Users\Алексей\Desktop\Скрипты"))
             {
-                //    Commit commit1 = repo.Lookup<Commit>("4774f6b9cc0560568db5eab62de90e227568209e");
-                //    LibGit2Sharp.Commands.Checkout(repo, "time-app2");
-                //    Console.WriteLine("Author: {0}", commit1.Author.Name);
-                //    Console.WriteLine("Message: {0}", commit1.MessageShort);
-                //    Console.WriteLine("When: {0}", commit1.Committer);
-                //    Console.WriteLine("SHA: {0}", commit1.Sha);
-
                 foreach (Branch branch in repo.Branches)
                 {
                     MyBranchesList.Add(new MyBranch { BranchName = branch.FriendlyName });
                 }
-
-                //    foreach (Commit commit in repo.Commits)
-                //    {
-                //        Console.WriteLine("Message:{0} - Sha:{1}", commit.Message, commit.Sha);
-                //        MyCommitsList.Add(new MyCommit { Author = commit.Author.ToString(), Message = commit.MessageShort, Sha = commit.Sha, When = commit.Committer.When.ToString(), Committer = commit.Committer.ToString(), Email = commit.Committer.Email });
-                //    }
             }
         }
 
@@ -89,7 +76,6 @@ namespace JSCompiler
                 String result;
                 Engine jsEngine = new Engine();
 
-                //jsEngine.SetValue("log",new Action<object>(Console.WriteLine));
                 jsEngine.Execute(code);
 
                 TextBlock.Text = jsEngine.GetCompletionValue().ToString();
@@ -163,9 +149,9 @@ namespace JSCompiler
 
                 item = new TabItem();
                 item.Header = openFileDialog.SafeFileName;
-                item.Content = dock;            // OR : Add a UserControl containing all controls you like, OR use a ContentTemplate
+                item.Content = dock;
                 MyTabControl.Items.Add(item);
-                MyTabControl.SelectedItem = item;   // Setting focus to the new TabItem
+                MyTabControl.SelectedItem = item;
             }
             catch (Exception ex)
             {
@@ -237,9 +223,9 @@ namespace JSCompiler
 
                 item = new TabItem();
                 item.Header = "untitled";
-                item.Content = dock;            // OR : Add a UserControl containing all controls you like, OR use a ContentTemplate
+                item.Content = dock;
                 MyTabControl.Items.Add(item);
-                MyTabControl.SelectedItem = item;   // Setting focus to the new TabItem
+                MyTabControl.SelectedItem = item;
             }
             catch (Exception ex)
             {
@@ -386,9 +372,9 @@ namespace JSCompiler
 
                     item = new TabItem();
                     item.Header = Path.GetFileName(e.Node.Name);
-                    item.Content = dock;            // OR : Add a UserControl containing all controls you like, OR use a ContentTemplate
+                    item.Content = dock;
                     MyTabControl.Items.Add(item);
-                    MyTabControl.SelectedItem = item;   // Setting focus to the new TabItem
+                    MyTabControl.SelectedItem = item;
                 }
             }
             catch { }
@@ -410,11 +396,6 @@ namespace JSCompiler
 
             using (var repo = new Repository(folderPath))
             {
-                //CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };
-                //MergeOptions opts = new MergeOptions() { FileConflictStrategy = CheckoutFileConflictStrategy.Merge };
-
-                //LibGit2Sharp.Commands.Checkout(repo, myBranch.BranchName, opt);
-                
                 foreach (Commit commit in repo.Commits)
                 {
                     MyCommitsList.Add(new MyCommit { Author = commit.Author.ToString(), Message = commit.MessageShort, Sha = commit.Sha, When = commit.Committer.When.ToString(), Committer = commit.Committer.ToString(), Email = commit.Committer.Email });
@@ -428,16 +409,10 @@ namespace JSCompiler
         {
             MyCommit myCommit = (MyCommit)commitListBox.SelectedItem;
 
-            //MyCommitsList.Clear();
-
             using (var repo = new Repository(folderPath))
             {
                 if (myCommit != null)
                 {
-                    //CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.Force };
-
-                    //LibGit2Sharp.Commands.Checkout(repo, myCommit.Sha, opt);
-
                     messageTextBlock.Text = myCommit.Message;
                     lolTextBlock.Text = myCommit.Committer.ToString() + " on " + myCommit.When.ToString();
                 }
@@ -476,12 +451,10 @@ namespace JSCompiler
 
             if (MessageBox.Show("Произвести checkout? Все несохранённые изменения будут утерены.", "JSCompiler", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
-                //do no stuff
                 return;
             }
             else
             {
-                //do yes stuff
                 using (var repo = new Repository(folderPath))
                 {
                     CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };
@@ -526,12 +499,10 @@ namespace JSCompiler
 
             if (MessageBox.Show("Произвести checkout? Все несохранённые изменения будут утерены.", "JSCompiler", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
             {
-                //do no stuff
                 return;
             }
             else
             {
-                //do yes stuff
                 using (var repo = new Repository(folderPath))
                 {
                     CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };

@@ -118,15 +118,12 @@ namespace JSCompiler
                     while (true)
                     {
                         if (read.Read() == false) break;
-                        //if (read["Post_ID"].ToString() == "1") role = "Директор";
-                        //else if (read["Post_ID"].ToString() == "2") role = "Программист";
                         Log log = new Log()
                         {
                             Path = (string)read["Path"],
                             Code = (string)read["Code"],
                             Result = (string)read["Result"],
                             Execution_Time = (DateTime)read["Execution_Time"],
-                            //Post_ID = role;
                         };
 
                         yield return log;
