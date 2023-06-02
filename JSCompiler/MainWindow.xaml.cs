@@ -16,6 +16,8 @@ using Microsoft.Win32;
 using WinForms = System.Windows.Forms;
 using ICSharpCode.AvalonEdit;
 using System.Collections.ObjectModel;
+using Jint.Parser;
+using Jint.Runtime;
 
 namespace JSCompiler
 {
@@ -49,7 +51,7 @@ namespace JSCompiler
 
             commitListBox.ItemsSource = MyCommitsList;
 
-            using (var repo = new Repository(@"C:\Users\Алексей\Desktop\Скрипты"))
+            using (var repo = new Repository(folderPath))
             {
                 foreach (Branch branch in repo.Branches)
                 {
@@ -71,17 +73,18 @@ namespace JSCompiler
 
                 TextEditor editor = dock.Children[1] as TextEditor;
                 String code = editor.Text;
-                
                 String path = null;
                 String result;
-                Engine jsEngine = new Engine();
+                Engine jsEngine = new Engine(c => c.DebugMode());
 
                 jsEngine.Execute(code);
 
-                TextBlock.Text = jsEngine.GetCompletionValue().ToString();
-                result = TextBlock.Text;
+                listBox.Items.Add(jsEngine.GetCompletionValue().ToString());
+                result = jsEngine.GetCompletionValue().ToString();
 
                 TextBlock textBlock = dock.Children[0] as TextBlock;
+
+                code = code.Replace(Environment.NewLine, " ");
 
                 if (textBlock.Text == null && textBlock.Text.Trim() == "")
                 {
@@ -94,9 +97,13 @@ namespace JSCompiler
                 new ExecutedScriptTableAdapter().InsertQuery(path, code, result, DateTime.Now, Convert.ToInt32(this.id));
                 UpdateExecutedScript();
             }
-            catch
+            catch (ParserException pEx)
             {
-
+                listBox.Items.Add("Parser Exception: " + pEx.Message);
+            }
+            catch (JavaScriptException rEx)
+            {
+                listBox.Items.Add("Runtime Exception: " + rEx.Message);
             }
         }
 
@@ -192,7 +199,7 @@ namespace JSCompiler
         {
             treeView.Nodes.Clear();
             MyTabControl.Items.Clear();
-            TextBlock.Text = "";
+            listBox.Items.Clear();
             folderPath = null;
         }
 
@@ -449,33 +456,37 @@ namespace JSCompiler
 
             MyCommitsList.Clear();
 
-            if (MessageBox.Show("Произвести checkout? Все несохранённые изменения будут утерены.", "JSCompiler", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            if (myBranch != null)
             {
-                return;
-            }
-            else
-            {
-                using (var repo = new Repository(folderPath))
+                if (MessageBox.Show("Произвести checkout? Все несохранённые изменения будут утерены.", "JSCompiler", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
                 {
-                    CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };
-
-                    LibGit2Sharp.Commands.Checkout(repo, myBranch.BranchName, opt);
-
-                    foreach (Commit commit in repo.Commits)
+                    return;
+                }
+                else
+                {
+                    using (var repo = new Repository(folderPath))
                     {
-                        MyCommitsList.Add(new MyCommit { Author = commit.Author.ToString(), Message = commit.MessageShort, Sha = commit.Sha, When = commit.Committer.When.ToString(), Committer = commit.Committer.ToString(), Email = commit.Committer.Email });
-                        commitListBox.Items.Refresh();
-                    }
+                        CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };
 
-                    DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
-                    if (directoryInfo.Exists)
-                    {
-                        treeView.Nodes.Clear();
-                        MyTabControl.Items.Clear();
-                        BuildTree(directoryInfo, treeView.Nodes);
+                        LibGit2Sharp.Commands.Checkout(repo, myBranch.BranchName, opt);
+
+                        foreach (Commit commit in repo.Commits)
+                        {
+                            MyCommitsList.Add(new MyCommit { Author = commit.Author.ToString(), Message = commit.MessageShort, Sha = commit.Sha, When = commit.Committer.When.ToString(), Committer = commit.Committer.ToString(), Email = commit.Committer.Email });
+                            commitListBox.Items.Refresh();
+                        }
+
+                        DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
+                        if (directoryInfo.Exists)
+                        {
+                            treeView.Nodes.Clear();
+                            MyTabControl.Items.Clear();
+                            BuildTree(directoryInfo, treeView.Nodes);
+                        }
                     }
                 }
             }
+            else return;
         }
 
         private void createBranch_Click(object sender, RoutedEventArgs e)
@@ -497,27 +508,31 @@ namespace JSCompiler
         {
             MyCommit myCommit = (MyCommit)commitListBox.SelectedItem;
 
-            if (MessageBox.Show("Произвести checkout? Все несохранённые изменения будут утерены.", "JSCompiler", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            if (myCommit != null)
             {
-                return;
+                if (MessageBox.Show("Произвести checkout? Все несохранённые изменения будут утерены.", "JSCompiler", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    using (var repo = new Repository(folderPath))
+                    {
+                        CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };
+
+                        LibGit2Sharp.Commands.Checkout(repo, myCommit.Sha, opt);
+                    }
+
+                    DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
+                    if (directoryInfo.Exists)
+                    {
+                        treeView.Nodes.Clear();
+                        MyTabControl.Items.Clear();
+                        BuildTree(directoryInfo, treeView.Nodes);
+                    }
+                }
             }
-            else
-            {
-                using (var repo = new Repository(folderPath))
-                {
-                    CheckoutOptions opt = new CheckoutOptions() { CheckoutModifiers = CheckoutModifiers.None };
-
-                    LibGit2Sharp.Commands.Checkout(repo, myCommit.Sha, opt);
-                }
-
-                DirectoryInfo directoryInfo = new DirectoryInfo(folderPath);
-                if (directoryInfo.Exists)
-                {
-                    treeView.Nodes.Clear();
-                    MyTabControl.Items.Clear();
-                    BuildTree(directoryInfo, treeView.Nodes);
-                }
-            }    
+            else return;
         }
     }
 }

@@ -52,7 +52,11 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <ListBox x:Name="commitListBox" MinHeight="100" MinWidth="500" HorizontalAlignment="Stretch" SelectionChanged="commitListBox_SelectionChanged" >
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock x:Name="messageTextBlock"></TextBlock>
+                        <TextBlock Height="50" x:Name="lolTextBlock" TextWrapping="Wrap"></TextBlock>
+                    </StackPanel>
+                    <ListBox  x:Name="commitListBox"  MinHeight="100"  HorizontalAlignment="Stretch" Width="Auto" SelectionChanged="commitListBox_SelectionChanged" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock FontSize="12" Text="{Binding Path=Message}" HorizontalAlignment="Center" />
@@ -64,17 +68,13 @@
                             </ContextMenu>
                         </ListBox.ContextMenu>
                     </ListBox>
-                    <StackPanel DockPanel.Dock="Right">
-                        <TextBlock x:Name="messageTextBlock"></TextBlock>
-                        <TextBlock Height="50" x:Name="lolTextBlock" TextWrapping="Wrap"></TextBlock>
-                    </StackPanel>
                 </DockPanel>
             </Grid>
             <Button DockPanel.Dock="Top" Content="Выполнить" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Click="Execute_Click"/>
             <WindowsFormsHost DockPanel.Dock="Left" MinWidth="200">
                 <wf:TreeView x:Name="treeView" AfterSelect="treeView_AfterSelect"/>
             </WindowsFormsHost>
-            <TextBlock DockPanel.Dock="Bottom" x:Name="TextBlock" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch" Height="40" />
+            <ListView DockPanel.Dock="Bottom" x:Name="listBox" HorizontalAlignment="Stretch" Height="95" Margin="0,0,-0.4,0" />
             <TabControl DockPanel.Dock="Top" x:Name="MyTabControl">
                 <TabControl.Template>
                     <ControlTemplate TargetType="{x:Type TabControl}">

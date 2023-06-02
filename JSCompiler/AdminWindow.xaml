@@ -1,4 +1,5 @@
 ﻿<Window x:Class="JSCompiler.AdminWindow"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,9 +8,33 @@
         mc:Ignorable="d"
         Title="Панель администратора" Height="450" Width="800">
     <Grid>
-        <Button Content="Выйти" Name="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="29" Click="Exit_Click"/>
-        <TextBlock Text="Меню администратора" FontSize="18" TextAlignment="Center" Margin="249,125,249.6,266"/>
-        <Button Content="Сотрудники" Name="Employees"  HorizontalAlignment="Center" Margin="105,182,432.6,182" VerticalAlignment="Center" Width="256" Height="56" FontSize="16" Click="Employees_Click"/>
-        <Button Content="Логи скриптов" Name="Logs" HorizontalAlignment="Center" Margin="428,182,109.6,182" VerticalAlignment="Center" Width="256" Height="56" FontSize="16" Click="Logs_Click"/>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Height="20" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <MenuItem Header="Выйти" Click="Exit_Click"/>
+                <MenuItem Header="Вывод">
+                    <MenuItem Header="Вывод в excel" Name="excelMenuItem" Click="excelMenuItem_Click"/>
+                    <MenuItem Header="Вывод в word" Name="wordMenuItem" Click="wordMenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+            <TabControl x:Name="adminTabControl" Style="{DynamicResource TabControlStyle}">
+                <TabItem Header="Логи">
+                    <Grid>
+                        <WindowsFormsHost Width="Auto" MinHeight="300" HorizontalAlignment="Stretch">
+                            <wf:DataGridView RowHeadersVisible="False" AutoSizeColumnsMode="Fill" x:Name="logsDataGrid"/>
+                        </WindowsFormsHost>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Сотрудники">
+                    <Grid>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Top" Content="Добавить нового сотрудника" Height="20" x:Name="Add" Click="Add_Click" />
+                            <WindowsFormsHost DockPanel.Dock="Bottom" Width="Auto" MinHeight="300" HorizontalAlignment="Stretch" >
+                                <wf:DataGridView CellMouseDown="dgrdResults_CellMouseDown" CellClick="dgvRptTables_CellClick" RowHeadersVisible="False" AutoSizeColumnsMode="Fill" x:Name="FormsDataGrid"/>
+                            </WindowsFormsHost>
+                        </DockPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
     </Grid>
 </Window>

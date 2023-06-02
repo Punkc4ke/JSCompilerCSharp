@@ -70,14 +70,6 @@ namespace JSCompiler
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EmployeesWindow window = new EmployeesWindow();
-            window.Show();
-            this.Close();
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            new AuthWindow().Show();
             this.Close();
         }
 
@@ -91,10 +83,8 @@ namespace JSCompiler
                     {
                         if (Regex.IsMatch(passwd.Text, @"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$"))
                         {
-                            new EmployeeTableAdapter().UpdateQuery(Name.Text, Surname.Text, Patronymic.Text, PasportSeries.Text, PassportNumber.Text, Phone.Text, DateOfBirth.Text, Adres.Text, Login.Text, passwd.Text, 2, 1, Convert.ToInt32(idTextBlock.Text));
-                            EmployeesWindow window = new EmployeesWindow();
-                            window.Show();
-                            this.Close();
+                            new EmployeeTableAdapter().UpdateQuery( Surname.Text, Name.Text, Patronymic.Text, PasportSeries.Text, PassportNumber.Text, Phone.Text, DateOfBirth.Text, Adres.Text, Login.Text, passwd.Text, Convert.ToInt32(idTextBlock.Text));
+                            this.DialogResult = true;
                         }
                         else MessageBox.Show("Пароль должен соответствовать следующим требованиям: минимум 6 символов, 1 прописная буква, минимум 1 цифра, по крайней мере один спец.символ!");
                     }

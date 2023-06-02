@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Авторизация" Height="450" Width="500">
     <Grid>
-        <TextBox x:Name="Login" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="Login" Text="Programmist" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
         <PasswordBox x:Name="Password" Margin="187,242,186.6,0" Height="23" VerticalAlignment="Top"/>
         <Button Content="Войти" Margin="210,287,209.6,0" Height="30" VerticalAlignment="Top" Click="Login_Click"/>
         <Label Content="Логин:" HorizontalAlignment="Left" Margin="135,198,0,0" VerticalAlignment="Top"/>

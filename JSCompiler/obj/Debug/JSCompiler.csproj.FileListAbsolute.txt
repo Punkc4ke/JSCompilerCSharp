@@ -61,7 +61,6 @@ C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.csproj.CopyComplete
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.exe
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.pdb
-C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.csproj.AssemblyReference.cache
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\bin\Debug\Syncfusion.Licensing.dll
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\bin\Debug\Syncfusion.SfBusyIndicator.WPF.dll
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\bin\Debug\Syncfusion.SfGridCommon.WPF.dll
@@ -79,11 +78,13 @@ C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\CreateBranc
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\CreateBranchWindow.baml
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\AdminWindow.g.cs
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\AdminWindow.baml
-C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\EmployeesWindow.g.cs
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\AddEmployeeWindow.g.cs
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\EditEmployeeWindow.g.cs
-C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\EmployeesWindow.baml
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\AddEmployeeWindow.baml
 C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\EditEmployeeWindow.baml
-C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\LogsWindow.g.cs
-C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\LogsWindow.baml
+C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.csproj.AssemblyReference.cache
+C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\Test.g.cs
+C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\Test.baml
+C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\App.baml
+C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Алексей\source\repos\JSCompiler\JSCompiler\obj\Debug\JSCompiler.csproj.ResolveComReference.cache

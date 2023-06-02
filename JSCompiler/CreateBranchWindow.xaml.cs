@@ -32,9 +32,8 @@ namespace JSCompiler
             }
             else
             {
-                MessageBox.Show("Введите название дял новой ветки");
-            }
-            
+                MessageBox.Show("Введите название для новой ветки");
+            }  
         }
 
         public string BranchName

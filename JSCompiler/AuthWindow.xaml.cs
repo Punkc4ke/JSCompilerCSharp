@@ -45,20 +45,22 @@ namespace JSCompiler
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-
-                        if (reader["Post_ID"].ToString() == "1")
+                        if(reader["Active_ID"].ToString() == "1")
                         {
-                            AdminWindow window = new AdminWindow();
-                            window.Show();
-                            this.Hide();
+                            if (reader["Post_ID"].ToString() == "1")
+                            {
+                                AdminWindow window = new AdminWindow();
+                                window.Show();
+                                this.Hide();
+                            }
+                            if (reader["Post_ID"].ToString() == "2")
+                            {
+                                MainWindow window = new MainWindow(reader["ID_Employee"].ToString());
+                                window.Show();
+                                this.Hide();
+                            }
                         }
-                        if (reader["Post_ID"].ToString() == "2")
-                        {
-                            MainWindow window = new MainWindow(reader["ID_Employee"].ToString());
-                            window.Show();
-                            this.Hide();
-                        }
-
+                        else MessageBox.Show("Данный пользователь заблокирован!");
                     }
                 }
             }

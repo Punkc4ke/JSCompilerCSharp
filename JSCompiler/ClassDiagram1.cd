@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JSCompiler.AddEmployeeWindow" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEARAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AddEmployeeWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.AdminWindow" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdminWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.App">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.AuthWindow" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="JSCompiler.AuthWindow.ConnectString" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>AuthWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>AuthWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.CreateBranchWindow" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreateBranchWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.DataSet1">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="JSCompiler.DataSet1.PostRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Delegate Name="JSCompiler.DataSet1.ExecutedScriptRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="JSCompiler.DataSet1.PostDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.ExecutedScriptRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.PostRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="JSCompiler.DataSet1.EmployeeRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="JSCompiler.DataSet1.Employee_ViewDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.ExecutedScriptDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.EmployeeDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.EmployeeRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.ExecutedScript_ViewDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.ExecutedScriptRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="JSCompiler.DataSet1.ExecutedScript_ViewRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="JSCompiler.DataSet1.Employee_ViewRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.EmployeeRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="JSCompiler.DataSet1.Employee_ViewRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="JSCompiler.DataSet1.ExecutedScript_ViewRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.ExecutedScript_ViewRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.Employee_ViewRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="JSCompiler.DataSet1.PostRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAQQAAAAwCEAALQBAAIQBAADAgCQBggAAAhEAEABBA=</HashCode>
+      <FileName>DataSet1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.EditEmployeeWindow" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="JSCompiler.EditEmployeeWindow.ConnectString" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>EditEmployeeWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEARAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>EditEmployeeWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.EmployeesWindow" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="JSCompiler.EmployeesWindow.ConnectString" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>EmployeesWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAAgAAAAAAAAQAAAAAAIAACABEAQAAA=</HashCode>
+      <FileName>EmployeesWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.User1">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAABAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmployeesWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.LogsWindow" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="JSCompiler.LogsWindow.ConnectString" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogsWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAgAAAAAAAAQAAAAAAIAACABEAQAAA=</HashCode>
+      <FileName>LogsWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.Log">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAgAAQAAAAAAAAAAAAAAAAAAEQ=</HashCode>
+      <FileName>LogsWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="JSCompiler.MainWindow.MyBranch" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="JSCompiler.MainWindow.MyCommit" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainWindow.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgASECEQAgAIECAAAABRAAAACAAAAAAAEACggQ=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JSCompiler.DataSet1TableAdapters.PostTableAdapter">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.DataSet1TableAdapters.ExecutedScriptTableAdapter">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.DataSet1TableAdapters.Employee_ViewTableAdapter">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.DataSet1TableAdapters.ExecutedScript_ViewTableAdapter">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEAAAAAcAIAAAAAAAACAICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.DataSet1TableAdapters.EmployeeTableAdapter">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAgAAAAIAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.DataSet1TableAdapters.TableAdapterManager">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="JSCompiler.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Class Name="JSCompiler.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQCAACABAABABEEBAAAAcAAwAAACgAAAAAQAAQAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.Properties.Resources">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSCompiler.Properties.Settings">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAABAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

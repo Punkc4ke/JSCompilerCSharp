@@ -1,0 +1,27 @@
+﻿<Window x:Class="JSCompiler.Test"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSCompiler"
+        mc:Ignorable="d"
+        Title="Test" Height="450" Width="800">
+    
+    <Grid>
+        <TabControl Style="{DynamicResource TabControlStyle}"  >
+            <TabItem Header="Логи">
+                
+            </TabItem>
+            <TabItem Header="Сотрудники">
+                <Grid>
+                    <WindowsFormsHost Width="Auto" MinHeight="300" HorizontalAlignment="Stretch">
+                        <wf:DataGridView RowHeadersVisible="False" AutoSizeColumnsMode="Fill" x:Name="FormsDataGrid">
+
+                        </wf:DataGridView>
+                    </WindowsFormsHost>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
